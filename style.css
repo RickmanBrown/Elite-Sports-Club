@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0b0b0f;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabecalho-home {
+  width: 100%;
+  padding: 24px 60px;
+  background-color: #111118;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.menu-home {
+  display: flex;
+  gap: 32px;
+}
+
+.menu-home a {
+  color: #d7d7d7;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.menu-home a:hover {
+  color: #d4af37;
+}
+
+/* SLIDER */
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  overflow: hidden;
+  background-color: #050509;
+  margin: 0 0 70px;
+}
+
+.slides {
+  width: 500%;
+  height: 100%;
+  display: flex;
+}
+
+.slides input {
+  display: none;
+}
+
+.slide {
+  width: 20%;
+  height: 100%;
+  transition: 0.8s ease;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #050509;
+}
+
+/* MOVIMENTO DO CARROSSEL */
+
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+  margin-left: -60%;
+}
+
+#radio5:checked ~ .first {
+  margin-left: -80%;
+}
+
+/* BOTÕES MANUAIS */
+
+.manual-navigation {
+  position: absolute;
+  width: 100%;
+  bottom: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  z-index: 10;
+}
+
+.manual-btn {
+  border: 2px solid #d4af37;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.manual-btn:hover {
+  background-color: #d4af37;
+}
+
+/* BOTÕES AUTOMÁTICOS */
+
+.navigation-auto {
+  position: absolute;
+  width: 100%;
+  bottom: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.navigation-auto div {
+  border: 2px solid #d4af37;
+  padding: 6px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn-1,
+#radio2:checked ~ .navigation-auto .auto-btn-2,
+#radio3:checked ~ .navigation-auto .auto-btn-3,
+#radio4:checked ~ .navigation-auto .auto-btn-4,
+#radio5:checked ~ .navigation-auto .auto-btn-5 {
+  background-color: #d4af37;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+  .cabecalho-home {
+    padding: 20px 24px;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .menu-home {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu-home a {
+    font-size: 14px;
+  }
+
+  .slider {
+    height: 500px;
+  }
+
+    .secao-esportes {
+    padding: 30px 24px 70px;
+  }
+
+  .cabecalho-secao {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .cabecalho-secao h2 {
+    white-space: normal;
+    font-size: 26px;
+  }
+
+  .linhas-secao {
+    width: 100%;
+  }
+
+  .grid-esportes {
+    grid-template-columns: 1fr;
+  }
+
+  .card-esporte img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid-esportes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cabecalho-secao h2 {
+    font-size: 28px;
+  }
+}
+
+
+.secao-esportes {
+  width: 100%;
+  padding: 40px 60px 90px;
+  background-color: #050509;
+}
+
+.cabecalho-secao {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 45px;
+}
+
+.cabecalho-secao h2 {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.linhas-secao {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linhas-secao span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #d4af37, rgba(212, 175, 55, 0.15));
+}
+
+.grid-esportes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card-esporte {
+  display: block;
+  text-decoration: none;
+  background-color: #0d0d13;
+  border: 1px solid #1d1d28;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card-esporte:hover {
+  transform: translateY(-8px);
+  border-color: #d4af37;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.card-esporte img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.conteudo-card {
+  padding: 22px;
+}
+
+.conteudo-card h3 {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.conteudo-card p {
+  color: #c8c8c8;
+  font-size: 16px;
+  line-height: 1.6;
+}
